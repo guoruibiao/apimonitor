@@ -1,2 +1,4 @@
 language: python
-script: true
+script: 
+  - python app.py
+  - echo "run success."
