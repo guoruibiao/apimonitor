@@ -1,0 +1,25 @@
+{
+  "svninfo":{
+    "username": "markdsinoberg",
+    "password": "password"
+  },
+  "dingtalk_hook": "https://oapi.dingtalk.com/robot/send?access_token=1e920c7a46dadadsd14677291d6ce75ac96d57c7eb495c1c52f8d3ea75664f1b",
+  "phones":{
+    "xxxxxxx": {"phone":'xxxxxxx', "name": "郭老师"},
+    "xxxxxxx": {"phone":'xxxxxxx', "name": "王老师"}
+    },
+  "output": {
+    "folder": "/tmp/apimonitor/",
+    "fileformat": "%Y-%m-%d"
+  },
+  "monitor": {
+    "filepath": "/var/log/nginx/api_error.log",
+    "taillines": 10,
+    "repopath": "/home/wwwroot/api.xxxxxxx.com/",
+    "phase":[1, 10, 100]
+  },
+  "hashalgorithm":{
+    "enable": "md5",
+    "options": ["md5"]
+  }
+}
