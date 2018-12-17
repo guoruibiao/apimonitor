@@ -1,3 +1,3 @@
 #coding: utf8
 print("hello world.")
-print("build")
+print("build message")
