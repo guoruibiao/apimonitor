@@ -15,6 +15,7 @@ import re
 import os
 import json
 import time
+import socket
 import hashlib
 import urllib2
 import commands
@@ -139,6 +140,8 @@ def is_error_need_record(configs, md5value, errortuple):
                 writefile.close()
     return ret
 
+def get_host_name():
+    return socket.gethostname()
 
 def send_dingtalk(configs, errortuple):
     """
@@ -153,7 +156,7 @@ def send_dingtalk(configs, errortuple):
     if maintainer:
         name = maintainer['name']
         phone = maintainer['phone']
-    msg['text']['content'] = "检测到NGINX错误\n错误信息为:{0}\n文件全路径:{1}\n出错代码行数:{2}\n代码作者:{3}\n".format(errortuple[0], errortuple[1], errortuple[2], name)
+    msg['text']['content'] = "检测到NGINX错误\n错误信息为:{0}\n文件全路径:{1}\n出错代码行数:{2}\n代码作者:{3}\n 执行主机：{4}\n".format(errortuple[0], errortuple[1], errortuple[2], name, get_host_name())
     if phone != -1:
         msg['at']['atMobiles'] = [phone]
     else:
